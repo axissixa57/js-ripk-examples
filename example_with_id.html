@@ -1,0 +1,85 @@
+<style>
+    html,
+    body,
+    .container {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .container {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .container>div {
+        flex-grow: 1;
+    }
+
+    .container>div:nth-child(1) {
+        background-color: #E63946;
+    }
+
+    .container>div:nth-child(2) {
+        background-color: #F1FAEE;
+    }
+
+    .container>div:nth-child(3) {
+        background-color: #A8DADC;
+    }
+
+    .container>div:nth-child(4) {
+        background-color: #457B9D;
+    }
+
+    .container>div:nth-child(5) {
+        background-color: #1D3557;
+    }
+
+    .container>div:nth-child(6) {
+        background-color: #0B132B;
+    }
+
+    .container>div:nth-child(7) {
+        background-color: #1C2541;
+    }
+
+    .container>div:nth-child(8) {
+        background-color: #3A506B;
+    }
+
+    .container>div:nth-child(9) {
+        background-color: #5BC0BE;
+    }
+
+    .container>div:nth-child(10) {
+        background-color: #6FFFE9;
+    }
+</style>
+<div class="container">
+    <div id="banner_1">
+        <div></div>
+    </div>
+</div>
+<script>
+    const maxCount = 10;
+    let bannerNum = 1;
+
+    let container = document.body.firstElementChild;
+    let first = document.getElementById("banner_1");
+
+    function insertBanner() {
+
+        let newBanner = first.cloneNode(true);
+        ++bannerNum;
+        newBanner.id = "banner_" + bannerNum;
+        container.appendChild(newBanner);
+        if (bannerNum < maxCount) {
+
+            setTimeout(insertBanner, 3333);
+
+        }
+    }
+
+    insertBanner();
+</script>

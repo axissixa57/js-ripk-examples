@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        body>div {
+            width: inherit;
+            height: inherit;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body>div>div {
+            width: 30%;
+            height: 70%;
+        }
+
+        body>div>div:nth-child(1) {
+            border-radius: 50px 0 0 50px;
+        }
+
+        body>div>div:nth-child(3) {
+            border-radius: 0 50px 50px 0;
+        }
+
+        #blue {
+            background-color: #1446A0;
+        }
+
+        #yellow {
+            background-color: #F5A623;
+        }
+
+        #cherry {
+            background-color: #DB3069;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="blue"></div>
+        <div id="cherry"></div>
+        <div id="yellow"></div>
+    </div>
+    <script>
+        let cont = document.getElementById("container");
+
+        setInterval(function () {
+
+            cont.insertBefore(cont.firstChild, cont.lastChild); // последний элемент вставится перед первым
+
+        }, 2000);
+        // Интересный момент, при добавлении элемента, который уже присутствует где-то в DOM дереве, он будет удалён из своей старой позиции и перемещён в новую.
+        // Т.е. один элемент не может находиться сразу в 2 местах на странице.
+    </script>
+</body>
+
+</html>

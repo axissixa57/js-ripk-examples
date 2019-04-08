@@ -1,0 +1,79 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Amatic+SC&subset=cyrillic');
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        font-family: 'Amatic SC';
+        font-size: 1.6rem;
+        background-color: #E2DBBE;
+        scroll-behavior: smooth;
+    }
+
+    .content {
+        display: inline-flex;
+        width: 40%;
+        height: 100%;
+        flex-flow: column nowrap;
+        padding: 40px;
+        overflow: auto;
+        text-align: justify;
+        text-indent: 40px;
+        background-color: white;
+    }
+
+    p {
+        margin: 5px;
+    }
+</style>
+
+<div class="content">
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque mollitia dolore, reiciendis eveniet quos maiores
+        ducimus et ad ullam suscipit, fuga ipsam nihil perspiciatis dolor quam quasi quisquam atque aliquam!
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore modi autem blanditiis, unde pariatur quo
+        sint necessitatibus tenetur similique, harum beatae nesciunt non quis obcaecati error, perferendis vero dolore
+        voluptate.
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia corporis, eveniet praesentium ea accusantium
+        fugit reprehenderit molestiae at, culpa fuga, repudiandae assumenda dolorem quidem. Veritatis optio cumque culpa
+        inventore ipsa?
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa fuga minima sapiente tempore quasi quidem, quas
+        minus officia quam error officiis quod dolorem! Dolor, officia repellat recusandae mollitia doloribus non?
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam tenetur voluptatibus iure est obcaecati. Nobis
+        itaque accusantium voluptatem, reiciendis delectus odit sed facilis nam architecto maxime! Modi velit assumenda
+        doloribus.
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo ipsam recusandae natus, architecto error
+        sunt consequuntur hic. Doloribus, maiores, possimus rem minima earum eveniet porro, quo tempore maxime unde
+        fugit?
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe a corporis eos eaque quidem optio, molestias
+        harum illum numquam deserunt voluptate ipsum voluptas ullam commodi eveniet! Illo vel mollitia nihil.
+    </p>
+</div>
+
+<script>
+    let text = document.body.firstElementChild;
+
+    setInterval(function () {
+
+        text.scrollBy({
+            top: 1,
+            behavior: 'smooth'
+        });
+
+    }, 200);
+</script>

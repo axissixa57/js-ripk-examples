@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <ul>
+            <li id="item1" >
+                <a id="link1" href=""></a>
+            </li>
+            <li>
+                <a href=""></a>
+            </li>
+        </ul>
+    </main>
+</body>
+<script>
+let body = document.body;
+let prevSibling = body.previousElementSibling;     // head
+let nextSibling = body.nextElementSibling;     // null
+
+let item1 = document.getElementById("item1");
+let item2 = item1.nextElementSibling;
+
+function isNodeOnlyChild(el) {
+    return el.previousElementSibling === el.nextElementSibling;
+}
+
+console.log(isNodeOnlyChild(document));     // true -> undef == undef
+console.log(isNodeOnlyChild(document.head));        // false
+console.log(isNodeOnlyChild(document.head.children[0]));        // false
+console.log(isNodeOnlyChild(document.body.children[0]));        // false
+</script>
+</html>

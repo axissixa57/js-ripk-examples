@@ -1,0 +1,86 @@
+<style>
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #grid {
+        width: 400px;
+        height: 400px;
+        display: flex;
+        flex-flow: row wrap;
+        background-image: url(https://i1.wp.com/www.thegamegal.com/wp-content/uploads/2018/08/ultimate-tic-tac-toe12-01.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #grid>div {
+        box-sizing: border-box;
+        height: calc(33.3% - 20px);
+        width: calc(33.3% - 20px);
+        margin: 10px;
+        cursor: pointer;
+        background-size: cover;
+        background-clip: content-box;
+    }
+
+    .x {
+        background-image: url(http://toastmasters.ru/wp-content/uploads/2016/04/Tic-tac-toe-cross.png);
+    }
+
+    .o {
+        background-image: url(http://toastmasters.ru/wp-content/uploads/2016/04/Tic-tac-toe-nought-e1461667111145.png);
+    }
+
+    #grid>div.x,
+    #grid>div.o {
+        cursor: default;
+    }
+</style>
+
+<div id="grid">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<script>
+    let grid = document.getElementById("grid");
+
+    let turn = 1;
+
+    for (let i = 0; i < grid.children.length; ++i) {
+
+        let cell = grid.children[i];
+        cell.addEventListener("click", function () {
+
+            if (cell.classList.contains("x") || cell.classList.contains("o")) {
+                return;
+            }
+
+            if (turn % 2 === 1) {
+                cell.classList.add("x");
+            } else {
+                cell.classList.add("o");
+            }
+
+            ++turn;
+
+        });
+
+    }
+</script>

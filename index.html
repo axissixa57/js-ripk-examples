@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body class="body-container">
+    <main class="container">
+        <ul id="list" class="blue-list">
+            <li>
+                <a id="link_1" name="clecture" href="https://learn.paradox.red/clecture">Первая ссылка</a>
+            </li>
+            <li>
+                <a id="link_2" name="sharp" href="https://learn.paradox.red/sharp">Вторая ссылка</a>
+            </li>
+            <li>
+                <a id="link_3" name="js" href="https://learn.paradox.red/js">Третья ссылка</a>
+            </li>
+            <li>
+                <a id="link_4" name="testing" href="https://learn.paradox.red/testing">Четвёртая ссылка</a>
+            </li>
+        </ul>
+    </main>
+</body>
+<script>
+let list =  document.getElementById("list");
+
+let item = list.firstElementChild;
+do {
+
+    let linkAttrs = item.children[0].attributes;
+
+    linkAttrs.href.value = "http://example.com/";
+    console.log(`${linkAttrs.name.value} now leads to ${linkAttrs.href.value}`);
+
+    item = item.nextElementSibling;
+
+} while (item != null);
+</script>
+</html>

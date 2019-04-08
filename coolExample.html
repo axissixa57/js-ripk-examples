@@ -1,0 +1,331 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans');
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        font-family: 'Alegreya Sans';
+    }
+
+    body {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .right-panel {
+        height: 100%;
+        width: 400px;
+        background-color: #C5C3C6;
+        border-right: 1px solid #457B9D;
+    }
+
+    .right-panel>div {
+        height: 50%;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    .right-panel>div>div:nth-child(1) {
+        height: 50px;
+        border-bottom: 1px solid #457B9D;
+        text-align: center;
+        line-height: 50px;
+        font-size: 1.6rem;
+        background-color: #A2C3D1;
+    }
+
+    .right-panel>div>div:nth-child(2) {
+        flex: 1;
+        border-bottom: 1px solid #457B9D;
+        display: flex;
+        flex-flow: column nowrap;
+        overflow: auto;
+    }
+
+    .one-item {
+        height: 40px;
+        line-height: 40px;
+        font-size: 1.2rem;
+        background-color: white;
+        margin: 4px 8px 4px 50px;
+        border-radius: 20px;
+        text-align: center;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    .one-item:first-child {
+        margin-top: 8px;
+    }
+
+    .one-item>span:nth-child(1) {}
+
+    .one-item>span:nth-child(2) {}
+
+    #work_zone {
+        height: 100%;
+        flex: 1;
+        background-color: #F1FAEE;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        overflow: auto;
+    }
+
+    #work_zone>div {
+        width: 100px;
+        height: 100px;
+        background-color: #1D3557;
+        cursor: pointer;
+        transition: .6s ease-out;
+    }
+
+    .selected {
+        box-shadow: 0 0 30px 10px #A5668B;
+    }
+
+    .selected:before {
+        box-shadow: 0 0 30px 10px #A5668B;
+    }
+
+    #add_box {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: #A2C3D1;
+        right: 20px;
+        bottom: 20px;
+        border-radius: 50%;
+        box-shadow: -2px -2px 12px 0 rgba(0, 0, 0, .5);
+        cursor: pointer;
+    }
+
+    #add_box::after {
+        content: " ";
+        position: absolute;
+        display: block;
+        background-color: #F1FAEE;
+        height: 12px;
+        margin-top: -6px;
+        top: 50%;
+        left: 20px;
+        right: 20px;
+        border-radius: 5px;
+    }
+
+    #add_box::before {
+        content: " ";
+        position: absolute;
+        display: block;
+        background-color: #F1FAEE;
+        width: 12px;
+        margin-left: -6px;
+        left: 50%;
+        top: 20px;
+        bottom: 20px;
+        border-radius: 5px;
+    }
+
+    /* MOVABLE CLASSES */
+
+    #work_zone>div.circle {
+        background-image: linear-gradient(#e66465, #9198e5);
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+
+    #work_zone>div.borders {
+        height: 40px;
+        width: 180px;
+        border-top: 40px solid #FAB935;
+        border-bottom: 40px solid #BD2530;
+    }
+
+    #work_zone>div.pseudos {
+        transform-origin: 50% 50%;
+    }
+
+    #work_zone>div.pseudos:hover {
+        animation: rotating 2s infinite linear;
+    }
+
+    #work_zone>div.pseudos:active {
+        background-color: #FA7921;
+        box-shadow: 0 0 200px 50px #FA7921;
+    }
+
+    @keyframes rotating {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    #work_zone>div.forms {
+        height: 30px;
+        width: 30px;
+        left: 60px;
+        border: 15px solid #5BC0EB;
+        background-color: transparent;
+        border-radius: 50% 50% 50% 0;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    #work_zone>div.forms:before {
+        content: '';
+        position: absolute;
+        top: 30px;
+        left: -60px;
+        height: 30px;
+        width: 30px;
+        border: 15px solid #5BC0EB;
+        border-radius: 50% 50% 50% 0;
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+</style>
+
+<div class="right-panel">
+    <div class="adding">
+        <div>Добавление</div>
+        <div>
+            <div id="add_1" class="one-item">
+                <span>Класс 1.</span>
+                <span>Цветастый кружок</span>
+            </div>
+            <div id="add_2" class="one-item">
+                <span>Класс 2.</span>
+                <span>Границы</span>
+            </div>
+            <div id="add_3" class="one-item">
+                <span>Класс 3.</span>
+                <span>Псевдоклассы</span>
+            </div>
+            <div id="add_4" class="one-item">
+                <span>Класс 4.</span>
+                <span>Причудливая форма</span>
+            </div>
+        </div>
+    </div>
+    <div class="removing">
+        <div>Удаление</div>
+        <div>
+            <div id="rem_1" class="one-item">
+                <span>Класс 1.</span>
+                <span>Цветастый кружок</span>
+            </div>
+            <div id="rem_2" class="one-item">
+                <span>Класс 2.</span>
+                <span>Границы</span>
+            </div>
+            <div id="rem_3" class="one-item">
+                <span>Класс 3.</span>
+                <span>Псевдоклассы</span>
+            </div>
+            <div id="rem_4" class="one-item">
+                <span>Класс 4.</span>
+                <span>Причудливая форма</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="work_zone">
+</div>
+<div id="add_box"></div>.
+
+<script>
+    // 1) Получаем элемент круглой кнопки с плюсом
+    let plusButton = document.getElementById("add_box");
+
+    let workZone = document.getElementById("work_zone");
+
+    // В этой переменной будет храниться ссылка на выделенный в рабочей зоне блок
+    let selectedBlock = null;
+
+    // И привязываем к нажатию на эту кнопку обработчик
+    // Который будет добавлять новый блок в рабочую зону
+    plusButton.addEventListener("click", function () {
+
+        let newBlock = document.createElement("div");
+        workZone.appendChild(newBlock);
+
+        // Привязываем к новому блоку обработчик нажатия,
+        // Который будет делать этот элемент "выделенным"
+        newBlock.addEventListener("click", function () {
+
+            // Убираем визуальное выделение предыдущего выбранного элемента
+            if (selectedBlock != null) {
+                selectedBlock.classList.remove("selected");
+            }
+            // Добавляем визуальное выделение к новому элементу, на который было произведено нажатие
+            newBlock.classList.add("selected");
+            // Перезаписываем старый выделенный блок новым
+            selectedBlock = newBlock;
+
+        });
+
+    });
+
+    // 2) Привязываем обработчики ко всем кнопкам на левой панели.
+    // Чтобы при нажатии на каждую кнопку у ВЫДЕЛЕННОГО элемента
+    // добавлялся либо убирался определённый класс
+
+    // Получаем ссылки на все кнопки
+    let add1 = document.getElementById("add_1");
+    let add2 = document.getElementById("add_2");
+    let add3 = document.getElementById("add_3");
+    let add4 = document.getElementById("add_4");
+
+    let rem1 = document.getElementById("rem_1");
+    let rem2 = document.getElementById("rem_2");
+    let rem3 = document.getElementById("rem_3");
+    let rem4 = document.getElementById("rem_4");
+
+    // Привязываем обработчики
+    add1.addEventListener("click", function () {
+        if (selectedBlock != null) {
+            selectedBlock.classList.add("circle");
+        }
+    });
+    add2.addEventListener("click", function () {
+        if (selectedBlock != null) {
+            selectedBlock.classList.add("borders");
+        }
+    });
+    add3.addEventListener("click", function () {
+        if (selectedBlock != null) {
+            selectedBlock.classList.add("pseudos");
+        }
+    });
+    add4.addEventListener("click", function () {
+        if (selectedBlock != null) {
+            selectedBlock.classList.add("forms");
+        }
+    });
+
+    // Привязываем обработчики
+    rem1.addEventListener("click", function () {
+        if (selectedBlock != null) {
+            selectedBlock.classList.remove("circle");
+        }
+    });
+    rem2.addEventListener("click", function () {
+        if (selectedBlock != null) {
+            selectedBlock.classList.remove("borders");
+        }
+    });
+    rem3.addEventListener("click", function () {
+        if (selectedBlock != null) {
+            selectedBlock.classList.remove("pseudos");
+        }
+    });
+    rem4.addEventListener("click", function () {
+        if (selectedBlock != null) {
+            selectedBlock.classList.remove("forms");
+        }
+    });
+</script>

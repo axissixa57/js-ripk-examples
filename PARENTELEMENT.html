@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div>
+            <ul>
+                <li>
+                    <a href=""></a>
+                </li>
+                <li>
+                    <a id="test" href=""></a>
+                </li>
+                <li>
+                    <a href=""></a>
+                </li>
+            </ul>
+        </div>
+        <section></section>
+        <footer></footer>
+    </main>
+<script>
+// функция, которая будет выводить всех родителей переданного элемента до самого корня
+function showParents(el) {
+
+if (el instanceof Node === false) {
+    return;
+}
+let stack = [];
+do {
+
+    stack.push(el);
+    el = el.parentElement;
+
+} while(el.parentElement != null); // пока не дойдёт до document(т.к. у него ссылка null)
+
+let indent = "";
+while (stack.length != 0) {
+
+    let el = stack.pop();
+    console.log(indent + el + " - " + el.tagName);
+    indent += "\t";
+
+}
+}
+
+let a = document.getElementById("test");
+showParents(a);
+// [object HTMLBodyElement] - BODY
+//  	[object HTMLElement] - MAIN
+//  		[object HTMLDivElement] - DIV
+//  			[object HTMLUListElement] - UL
+//  				[object HTMLLIElement] - LI
+//  					file:///F:/html,css/Pavel%20%D0%A0%D0%98%D0%9F%D0%9A/index.html - A
+</script>
+</body>
+</html>

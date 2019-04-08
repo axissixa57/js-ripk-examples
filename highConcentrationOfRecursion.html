@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <ul>
+                <li>
+                    <a href=""></a>
+                </li>
+                <li>
+                    <a id="test" href=""></a>
+                </li>
+                <li>
+                    <a href=""></a>
+                </li>
+            </ul>
+        </div>
+        <section></section>
+        <footer></footer>
+    </main>
+    <script>
+        function eachNode(rootNode, callback) {
+
+            if (!callback) {
+
+                let nodes = [];
+
+                eachNode(rootNode, function (node) {
+
+                    nodes.push(node);
+
+                });
+
+                return nodes;
+            }
+
+            if (callback(rootNode) === false) {
+                return false;
+            }
+
+            if (rootNode.hasChildNodes()) {
+
+                let nodes = rootNode.childNodes;
+
+                for (let i = 0, l = nodes.length; i < l; ++i) {
+
+                    if (eachNode(nodes[i], callback) === false) {
+                        return;
+                    }
+                }
+            }
+        }
+
+        // Пригодится в будущем
+    </script>
+</body>
+
+</html>

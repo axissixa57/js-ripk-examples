@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Noto+Serif+TC:300&subset=cyrillic');
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            box-sizing: border-box;
+            padding: 60px 40px;
+            font-family: 'Noto Serif TC';
+            font-size: 20px;
+            text-align: justify;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .selected {
+            background-color: #645DD7;
+            cursor: grab;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let text = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta fuga numquam ipsum. Provident, doloribus ea. Iste, pariatur eum laboriosam obcaecati quas officia perspiciatis provident reiciendis, tenetur hic nostrum sint accusamus. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam fuga tempora quidem ipsa aperiam unde saepe, id expedita ipsum esse mollitia molestiae, veritatis doloribus laboriosam ea recusandae animi eius minus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio exercitationem repellendus repellat sapiente soluta atque architecto nostrum velit. Ratione et nisi sapiente commodi. Nisi beatae placeat dolorem dicta quos soluta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam itaque blanditiis est nesciunt accusamus quasi doloribus aperiam, libero dicta explicabo optio magnam. Recusandae enim rerum perspiciatis fugiat repudiandae autem!
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, quia fuga! Nobis velit omnis odio cumque ratione, aliquid quia laudantium, dicta perferendis iure voluptatem aut illum corporis illo at minus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laudantium blanditiis velit error incidunt beatae quos ex voluptate. Unde facere ex numquam dolore officia sapiente consequuntur repudiandae ut tempore porro! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse aliquid, temporibus molestias sed alias repudiandae eveniet ratione nemo officiis impedit nihil maxime accusantium nesciunt repellendus facere ut, ipsam delectus amet.`
+
+        let words = text.split(" ");
+
+        for (let word of words) {
+
+            let newSpan = document.createElement("span");
+            newSpan.textContent = word + " ";
+            document.body.appendChild(newSpan);
+
+            newSpan.addEventListener("click", function () {
+
+                newSpan.classList.add("selected");
+
+            });
+        }
+    </script>
+</body>
+
+</html>

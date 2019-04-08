@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <ul>
+                <li>
+                    <a href=""></a>
+                </li>
+                <li>
+                    <a id="test" href=""></a>
+                </li>
+                <li>
+                    <a href=""></a>
+                </li>
+            </ul>
+        </div>
+        <section></section>
+        <footer></footer>
+    </main>
+    <script>
+        function showNonElements(el) {
+
+            if (el instanceof Node === false) {
+                return;
+            }
+            let arr = [];
+            let elements = el.children;
+            let nodes = el.childNodes;
+            for (let i = 0; i < nodes.length; ++i) {
+
+                let found = false;
+                for (let j = 0; j < elements.length; ++j) {
+
+                    if (nodes[i] === elements[j]) {
+
+                        found = true;
+                        break;
+
+                    }
+                }
+
+                if (!found) {
+
+                    arr.push(nodes[i]);
+
+                }
+
+            }
+
+            console.log(`${arr.length} non-elements was founded:`);
+            for (let el of arr) {
+                console.log(el);
+            }
+        }
+
+        let head = document.head;
+        showNonElements(head); // 3 non-elements was founded: #text #text #text
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body class="body-container">
+    <main class="container">
+        <ul id="list" class="blue-list">
+            <li>
+                <a id="link_1" name="clecture" href="https://learn.paradox.red/clecture">Первая ссылка</a>
+            </li>
+            <li>
+                <a id="link_2" href="https://learn.paradox.red/sharp">Вторая ссылка</a>
+            </li>
+            <li>
+                <a id="link_3" href="https://learn.paradox.red/js">Третья ссылка</a>
+            </li>
+            <li>
+                <a id="link_4" href="https://learn.paradox.red/testing">Четвёртая ссылка</a>
+            </li>
+        </ul>
+    </main>
+    <script>
+        function showAttr(el) {
+
+            if (el.attributes.length === 0) {
+
+                console.log("No attributes to show");
+                return;
+
+            }
+            for (let i = 0; i < el.attributes.length; ++i) {
+
+                console.log(el.attributes[i].name.padEnd(5) + " --> " + el.attributes[i].value);
+
+            }
+        }
+
+        let link1 = document.getElementById("link_1");
+        showAttr(link1);
+        // id    --> link_1
+        // name  --> clecture
+        // wretbvwrtvwtrv --> asd
+        // href  --> https://learn.paradox.red/clecture
+        // JavaScript метод padEnd()ECMAScript 2017 позволяет дополнить текущую строку, начиная с её конца (справа) с помощью пробельного символа (по умолчанию), или заданной строкой, таким образом чтобы результирующая строка достигла заданной длины.
+    </script>
+</body>
+
+</html>

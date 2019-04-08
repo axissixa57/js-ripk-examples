@@ -1,0 +1,118 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Scada');
+    @import url('https://fonts.googleapis.com/css?family=Spectral:500');
+    @import url('https://fonts.googleapis.com/css?family=Anonymous+Pro:700&subset=cyrillic');
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .page {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        transition: .6s ease-out;
+        font-family: 'Spectral';
+        background-color: #D8DBE2;
+    }
+
+    .page>div {
+        color: #1B1B1E;
+        transition: .6s ease-out;
+    }
+
+    .page>div:nth-child(1) {
+        font-size: 3.4rem;
+        letter-spacing: 12px;
+    }
+
+    .page>div:nth-child(2) {
+        font-size: 2em;
+        letter-spacing: 6px;
+    }
+
+    .switch {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        height: 34px;
+        width: 60px;
+    }
+
+    .switch input {
+        display: none;
+    }
+
+    .slider {
+        background-color: #1B1B1E;
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: .4s;
+    }
+
+    .slider:before {
+        background-color: #fff;
+        bottom: 4px;
+        content: "";
+        height: 26px;
+        left: 4px;
+        position: absolute;
+        transition: .4s;
+        width: 26px;
+    }
+
+    input:checked+.slider {
+        background-color: #D8DBE2;
+    }
+
+    input:checked+.slider:before {
+        background-color: #1B1B1E;
+        transform: translateX(26px);
+    }
+
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+    .dark {
+        font-family: 'Scada';
+        background-color: #0F2027;
+    }
+
+    .dark>div {
+        color: #fff;
+    }
+</style>
+
+<div class="page light">
+    <div>Ну же!</div>
+    <div>Пора изучать Веб!</div>
+    <label class="switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+    </label>
+</div>
+
+<script>
+    let checkbox = document.getElementById("checkbox");
+
+    checkbox.addEventListener("click", function () {
+
+        document.body.firstElementChild.classList.toggle("dark");
+
+    });
+</script>

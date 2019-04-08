@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        pre,
+        code {
+            font-family: Menlo, Monaco, "Courier New", monospace;
+        }
+
+        pre {
+            padding: .5rem;
+            line-height: 1.25;
+            overflow-x: scroll;
+        }
+
+        a,
+        a:visited {
+            color: #3498db;
+        }
+
+        a:hover,
+        a:focus,
+        a:active {
+            color: #2980b9;
+        }
+
+        .modest-no-decoration {
+            text-decoration: none;
+        }
+
+        html {
+            font-size: 12px;
+        }
+
+        @media screen and (min-width: 32rem) and (max-width: 48rem) {
+            html {
+                font-size: 15px;
+            }
+        }
+
+        @media screen and (min-width: 48rem) {
+            html {
+                font-size: 16px;
+            }
+        }
+
+        body {
+            line-height: 1.85;
+        }
+
+        p,
+        .modest-p {
+            font-size: 1rem;
+            margin-bottom: 1.3rem;
+        }
+
+        h1,
+        .modest-h1,
+        h2,
+        .modest-h2,
+        h3,
+        .modest-h3,
+        h4,
+        .modest-h4 {
+            margin: 1.414rem 0 .5rem;
+            font-weight: inherit;
+            line-height: 1.42;
+        }
+
+        h1,
+        .modest-h1 {
+            margin-top: 0;
+            font-size: 3.998rem;
+        }
+
+        h2,
+        .modest-h2 {
+            font-size: 2.827rem;
+        }
+
+        h3,
+        .modest-h3 {
+            font-size: 1.999rem;
+        }
+
+        h4,
+        .modest-h4 {
+            font-size: 1.414rem;
+        }
+
+        h5,
+        .modest-h5 {
+            font-size: 1.121rem;
+        }
+
+        h6,
+        .modest-h6 {
+            font-size: .88rem;
+        }
+
+        small,
+        .modest-small {
+            font-size: .707em;
+        }
+
+        /* https://github.com/mrmrs/fluidity */
+
+        img,
+        canvas,
+        iframe,
+        video,
+        svg,
+        select,
+        textarea {
+            max-width: 100%;
+        }
+
+        @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
+
+        @import url(http://fonts.googleapis.com/css?family=Arimo:700,700italic);
+
+        html {
+            font-size: 18px;
+            max-width: 100%;
+        }
+
+        body {
+            color: #444;
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-weight: 300;
+            margin: 0 auto;
+            max-width: 48rem;
+            line-height: 1.45;
+            padding: .25rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: Arimo, Helvetica, sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            border-bottom: 2px solid #fafafa;
+            margin-bottom: 1.15rem;
+            padding-bottom: .5rem;
+            text-align: center;
+        }
+
+        blockquote {
+            border-left: 8px solid #fafafa;
+            padding: 1rem;
+        }
+
+        pre,
+        code {
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        let h1 = document.createElement("h1");
+        h1.textContent = "README";
+
+        let p1 = document.createElement("p");
+        let text1 = document.createTextNode("This README documents static frontend template for www.12voynace.com. ");
+        let link = document.createElement("a");
+        link.textContent = "Online version";
+        let text2 = document.createTextNode(" may contain code which was not committed yet.");
+        p1.appendChild(text1);
+        p1.appendChild(link);
+        p1.appendChild(text2);
+
+        let p2 = document.createElement("p");
+        p2.textContent = "[TOC]";
+
+        let hr1 = document.createElement("hr");
+
+        let h2 = document.createElement("h2");
+        h2.textContent = "Used technologies";
+
+        let h3 = document.createElement("h3");
+        h3.textContent = "Development tools";
+
+        let p3 = document.createElement("p");
+        p3.textContent = "Gulp via Node.js - for  development workflow, automating tasks, etc";
+
+        let p4 = document.createElement("p");
+        p4.textContent = "Bower - for managing libraries and  dependencies";
+
+        let p5 = document.createElement("p");
+        p5.textContent = "Pug - as templating language";
+
+        let p6 = document.createElement("p");
+        p6.textContent = "SASS - as CSS interpreter";
+
+        let p7 = document.createElement("p");
+        p7.textContent = "Bitbucket - control versioning system (using Gitflow)";
+
+        let ul = document.createElement("ul");
+        let li1 = document.createElement("li");
+        li1.textContent = "master branch";
+        let li2 = document.createElement("li");
+        li2.textContent = "develop branch";
+        ul.appendChild(li1);
+        ul.appendChild(li2);
+
+        let hr2 = document.createElement("hr");
+
+        let h4 = document.createElement("h3");
+        h4.textContent = "Frontend libraries used";
+
+        let elements = [hr2, ul, p7, p6, p5, p4, p3, h3, h2, hr1, p2, p1, h1];
+
+        setInterval(function () {
+
+            if (elements.length != 0) {
+
+                let nextElement = elements.pop();
+                document.body.appendChild(nextElement);
+
+            }
+
+        }, 1000);
+    </script>
+</body>
+
+</html>

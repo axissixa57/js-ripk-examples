@@ -1,0 +1,206 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Scada');
+    @import url('https://fonts.googleapis.com/css?family=Spectral:500');
+    @import url('https://fonts.googleapis.com/css?family=Anonymous+Pro:700&subset=cyrillic');
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .page {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        transition: .6s ease-out;
+    }
+
+    .page>div {
+        transition: .6s ease-out;
+    }
+
+    .page>div:nth-child(1) {
+        font-size: 3.4rem;
+        letter-spacing: 12px;
+    }
+
+    .page>div:nth-child(2) {
+        font-size: 2em;
+        letter-spacing: 6px;
+    }
+
+    .themes {
+        position: absolute;
+        top: 5px;
+        right: 20px;
+        display: flex;
+        flex-flow: column;
+    }
+
+    .colors {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+    }
+
+    .colors>div {
+        height: 22px;
+        width: 22px;
+        margin: 0 4px;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+
+    #theme-light {
+        background-color: #D8DBE2;
+    }
+
+    #theme-cyan {
+        background-color: #2ec4b6;
+    }
+
+    #theme-matrix {
+        background-color: #62FF47;
+    }
+
+    #theme-dynamic {
+        background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    }
+
+    #theme-dark {
+        background-color: #0F2027;
+    }
+
+    .light {
+        font-family: 'Spectral';
+        background-color: #D8DBE2;
+    }
+
+    .light>div {
+        color: #1B1B1E;
+    }
+
+    .cyan {
+        font-family: 'Spectral';
+        background-color: #2ec4b6;
+    }
+
+    .cyan>div {
+        color: #13293D;
+    }
+
+    .matrix {
+        font-family: 'Anonymous Pro';
+        background-color: #0C0208;
+    }
+
+    .matrix>div {
+        color: #62FF47;
+    }
+
+    .matrix>div:not(.themes) {
+        text-shadow:
+            0 0 3px #62FF47,
+            0 0 8px #62FF47,
+            0 0 17px #62FF47,
+            0 0 35px #0ff,
+            0 0 60px #0ff,
+            0 0 0px #0ff,
+            0 0 100px #0ff,
+            0 0 150px #0ff;
+    }
+
+    .dynamic {
+        background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+        background-size: 400% 400%;
+        animation: Gradient 15s ease infinite;
+    }
+
+    @keyframes Gradient {
+        0% {
+            background-position: 0% 50%
+        }
+
+        50% {
+            background-position: 100% 50%
+        }
+
+        100% {
+            background-position: 0% 50%
+        }
+    }
+
+    .dynamic>div {
+        color: white;
+    }
+
+    .dark>div {
+        color: #1B1B1E;
+    }
+
+    .dark {
+        font-family: 'Scada';
+        background-color: #0F2027;
+    }
+
+    .dark>div {
+        color: #fff;
+    }
+</style>
+
+<div class="page light">
+    <div>Ну же!</div>
+    <div>Пора изучать Веб!</div>
+    <div class="themes">
+        <div>Выбор цветовой темы:</div>
+        <div class="colors">
+            <div id="theme-light"></div>
+            <div id="theme-cyan"></div>
+            <div id="theme-matrix"></div>
+            <div id="theme-dynamic"></div>
+            <div id="theme-dark"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentTheme = "light";
+
+    let lightBtn = document.getElementById("theme-light");
+    let cyanBtn = document.getElementById("theme-cyan");
+    let matrixBtn = document.getElementById("theme-matrix");
+    let dynamicBtn = document.getElementById("theme-dynamic");
+    let darkBtn = document.getElementById("theme-dark");
+
+    let page = document.body.firstElementChild;
+
+    lightBtn.addEventListener("click", function () {
+        page.classList.replace(currentTheme, "light");
+        currentTheme = "light";
+    });
+
+    cyanBtn.addEventListener("click", function () {
+        page.classList.replace(currentTheme, "cyan");
+        currentTheme = "cyan";
+    });
+
+    matrixBtn.addEventListener("click", function () {
+        page.classList.replace(currentTheme, "matrix");
+        currentTheme = "matrix";
+    });
+
+    dynamicBtn.addEventListener("click", function () {
+        page.classList.replace(currentTheme, "dynamic");
+        currentTheme = "dynamic";
+    });
+
+    darkBtn.addEventListener("click", function () {
+        page.classList.replace(currentTheme, "dark");
+        currentTheme = "dark";
+    });
+</script>
