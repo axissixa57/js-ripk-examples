@@ -1,0 +1,83 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:600&subset=cyrillic');
+
+    html,
+    body,
+    .main {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        font-family: 'IBM Plex Mono';
+    }
+
+    .main {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+    }
+
+    .main>div:first-child {
+        height: 100%;
+        width: 33%;
+        background-color: #D4E4BC;
+        box-shadow: inset 0 0 120px 80px #B0B5B3;
+        font-size: 1.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main>div:nth-child(2) {
+        flex: 1;
+        padding: 60px;
+        display: flex;
+    }
+
+    .main>div:last-child {
+        height: 100%;
+        width: 33%;
+        background-color: #3E6990;
+        box-shadow: inset 0 0 120px 80px #253F56;
+        font-size: 1.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+
+    }
+
+    #textfield {
+        background-color: #D0D5D3;
+        box-shadow: 5px 5px 20px 0 #B0B5B3;
+        border-radius: 16px;
+        border: 1px solid black;
+        flex: 1;
+        padding: 30px;
+        font-size: 3rem;
+        cursor: none;
+    }
+</style>
+
+<div class="main">
+    <div>Наведите сюда для получения фокуса</div>
+    <div>
+        <div id="textfield" contenteditable></div>
+    </div>
+    <div>Наведите сюда для потери фокуса</div>
+</div>
+
+<script>
+    function focusInput() {
+        document.getElementById('textfield').focus();
+    }
+
+    function blurInput() {
+        document.getElementById('textfield').blur();
+    }
+
+    let left = document.querySelector(".main > div:first-child");
+    let right = document.querySelector(".main > div:last-child");
+
+    left.addEventListener("mouseenter", focusInput);
+    right.addEventListener("mouseenter", blurInput);
+</script>
